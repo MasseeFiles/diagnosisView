@@ -14,7 +14,14 @@ public class DiagnosisViewService {
     }
 
     public List<Object> getAllPatient() {
-        return (List<Object>) diagnosisViewRepository.findAllPatients();
+        return diagnosisViewRepository.findAllPatient();
     }
 
+    public Object getSinglePatient(Long id) {
+        return diagnosisViewRepository.findPatientById(id);
+    }
+
+    public void updatePatient(Long id, Object patientToUpdate) {
+        diagnosisViewRepository.updatePatient(id, patientToUpdate);
+    }
 }
