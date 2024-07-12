@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>Home</title>
-    <link rel="stylesheet" href="../../css/bootstrap.min.css" >
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -13,56 +13,73 @@
     </div>
     <hr>
     <div class="row" style="text-align: center;">
-        <h2>Update Patient</h2>
+        <h4>Update Patient</h4>
     </div>
-    <div class="row" style="text-align: center;">
-        <form action="#" th:action="@{/{id}(id=${patient.patientId})}" th:object="${patient}" method="put" class="form-horizontal" style="width: 100%">
+    <div class="row">
+        <form th:action="@{/{id}(id=${patient.patientId})}" th:object="${patient}" method="POST" class="form-horizontal"
+              style="width: 100%">
             <div class="form-group">
                 <label for="lastName" class="col-sm-2 control-label">Last name</label>
                 <div class="col-sm-10">
-                    <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name" class="col-4">
+                    <input type="text" th:field="*{lastName}" th:name="*{lastName}" id="lastName"
+                           placeholder="Last Name" class="col-4">
                 </div>
             </div>
+            <div style="height: 3px"></div>
             <div class="form-group">
                 <label for="firstName" class="col-sm-2 control-label">First name</label>
                 <div class="col-sm-10">
-                    <input type="text" field="*{firstName}" id="firstName" placeholder="First Name" class="col-4">
+                    <input type="text" th:field="*{firstName}" th:name="*{firstName}" id="firstName"
+                           placeholder="First Name" class="col-4">
                 </div>
             </div>
+            <div style="height: 3px"></div>
             <div class="form-group">
                 <label for="dateOfBirth" class="col-sm-2 control-label">Date of birth</label>
                 <div class="col-sm-10">
-                    <input type="text" field="*{dateOfBirth}" id="dateOfBirth" placeholder="Date of birth" class="col-4">
+                    <input type="text" th:field="*{dateOfBirth}" th:name="*{dateOfBirth}" id="dateOfBirth"
+                           placeholder="Date of birth" class="col-4">
                 </div>
             </div>
+            <div style="height: 3px"></div>
             <div class="form-group">
                 <label for="genre" class="col-sm-2 control-label">Genre</label>
                 <div class="col-sm-10">
-                    <input type="text" field="*{genre}" id="genre" placeholder="Genre" class="col-4">
+                    <input type="text" th:field="*{genre}" th:name="*{genre}" id="genre" placeholder="Genre"
+                           class="col-4">
                 </div>
             </div>
+            <div style="height: 3px"></div>
             <div class="form-group">
                 <label for="address" class="col-sm-2 control-label">Address</label>
                 <div class="col-sm-10">
-                    <input type="text" field="*{address}" id="address" placeholder="Address" class="col-4">
+                    <input type="text" th:field="*{address}" th:name="*{address}" id="address" placeholder="Address"
+                           class="col-4">
                 </div>
             </div>
+            <div style="height: 3px"></div>
             <div class="form-group">
                 <label for="phoneNumber" class="col-sm-2 control-label">Phone number</label>
                 <div class="col-sm-10">
-                    <input type="text" field="*{phoneNumber}" id="phoneNumber" placeholder="Phone number" class="col-4">
+                    <input type="text" th:field="*{phoneNumber}" th:name="*{phoneNumber}" id="phoneNumber"
+                           placeholder="Phone number" class="col-4">
                 </div>
+                <div style="height: 3px"></div>
             </div>
-            <div class="form-group">
-                <div class="col-sm-12">
-                    <input type="hidden" field="*{patientId}">
-                    <a class="btn btn-danger btn-sm" href="/listPatient">Cancel </a>
-                    <input class="btn btn-primary btn-sm" type="submit" value="Update Patient">
+            <div>
+                <div class="col-sm-12" style="margin-left: 7em">
+                    <input type="hidden" th:field="*{patientId}">
+                    <form th:action="@{/{id}(id=${patient.patientId})}" method="post">
+                        <button type="submit">Update</button>
+                    </form>
+                    <div style="height: 2em"></div>
+                    <form th:action="@{/list}" method="get">
+                        <button type="submit">Cancel</button>
+                    </form>
                 </div>
             </div>
         </form>
     </div>
-
 </div>
 </body>
 </html>

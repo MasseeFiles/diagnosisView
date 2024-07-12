@@ -1,5 +1,6 @@
 package com.medilabo.diagnosisview.repository;
 
+import com.medilabo.diagnosisview.model.PatientView;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,11 +14,11 @@ import java.util.List;
 public interface DiagnosisViewRepository {
 
     @RequestMapping(method = RequestMethod.GET, value = "/patient")
-    List<Object> findAllPatient();
+    List<PatientView> findAllPatient();
 
     @RequestMapping(method = RequestMethod.GET, value = "/patient/{id}")
-    public Object findPatientById(@PathVariable("id") Long id);
+    PatientView findPatientById(@PathVariable("id") Long id);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/patient/{id}")
-    public void updatePatient(@PathVariable("id") Long id, Object patientToUpdate);
+    void updatePatient(@PathVariable("id") Long id, PatientView patientToUpdate);
 }

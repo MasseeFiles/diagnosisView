@@ -1,5 +1,6 @@
 package com.medilabo.diagnosisview.service;
 
+import com.medilabo.diagnosisview.model.PatientView;
 import com.medilabo.diagnosisview.repository.DiagnosisViewRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,15 +14,15 @@ public class DiagnosisViewService {
         this.diagnosisViewRepository = diagnosisViewRepository;
     }
 
-    public List<Object> getAllPatient() {
+    public List<PatientView> getAllPatient() {
         return diagnosisViewRepository.findAllPatient();
     }
 
-    public Object getSinglePatient(Long id) {
+    public PatientView getSinglePatient(Long id) {
         return diagnosisViewRepository.findPatientById(id);
     }
 
-    public void updatePatient(Long id, Object patientToUpdate) {
+    public void updatePatient(Long id, PatientView patientToUpdate) {
         diagnosisViewRepository.updatePatient(id, patientToUpdate);
     }
 }
