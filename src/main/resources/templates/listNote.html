@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Patient Notes</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div style="text-align: center">
+        <img src="../images/p1.png" alt="Medilabo logo" width="310">
+    </div>
+    <hr>
+    <div class="row" style="text-align: center;"><h4>Patient Notes</h4></div>
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="note : ${notes}">
+                <td style="width: 5%" th:text="${note.customId}"></td>
+                <td style="width: 80%" th:text="${note.noteField}"></td>
+                <td>
+                    <form th:action="@{noteForm/{id}(id=${note.customId})}" method="post">
+                        <button type="submit" class="btn btn-primary">Add note</button>
+                    </form>
+                </td>
+            </tbody>
+        </table>
+<!--        <div class="form-group">-->
+<!--            <form th:action="@{noteForm/{id}(id=${note[0].customId})}" th:object="${note}" method="post">-->
+<!--            <button type="submit" class="btn btn-primary">Add Note</button>-->
+<!--            </form>-->
+        </div>
+    </div>
+</div>
+</body>
+</html>

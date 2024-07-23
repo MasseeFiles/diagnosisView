@@ -1,6 +1,6 @@
-# COUCHE JAVA
+##################### DOCKERFILE Diagnosis view ####################
 
-#STAGE 1 : Construction du projet
+#################### STAGE 1 : Construction du projet ##########################
 
 # Definition de l'image de base
 FROM maven AS build
@@ -17,7 +17,7 @@ RUN mvn clean package -DskipTests
 
 
 
-#STAGE 2 : Execution de l'appli
+#################### STAGE 2 : Execution de l'appli ####################
 FROM openjdk:21-jdk-slim
 
 WORKDIR /diagnosisview
@@ -29,7 +29,8 @@ COPY --from=build /diagnosisview/target/diagnosisview-0.0.1-SNAPSHOT.jar /diagno
 EXPOSE 8082
 
 #RUN de l'appli (par defaut au demarrage)
-CMD ["java", "-jar", "diagnosisview.jar"]
+#ENTRYPOINT ["java", "-jar", "diagnosisview.jar"]
+ENTRYPOINT ["java", "-Dspring.config.location=classpath:/application.properties", "-jar", "diagnosisview.jar"]
 
 
 

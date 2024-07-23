@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <div style="text-align: center;">
+    <div style="text-align: center">
         <img src="../images/p1.png" alt="Medilabo logo" width="310">
     </div>
     <hr>
@@ -70,7 +70,7 @@
                 <div class="col-sm-12" style="margin-left: 7em">
                     <input type="hidden" th:field="*{patientId}">
                     <form th:action="@{/{id}(id=${patient.patientId})}" method="post">
-                        <button type="submit">Update</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </form>
                     <div style="height: 2em"></div>
                     <form th:action="@{/list}" method="get">

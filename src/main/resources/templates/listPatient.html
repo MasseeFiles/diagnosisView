@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-  <div style="text-align: center;">
+  <div style="text-align: center">
     <img src="../images/p1.png" alt="Medilabo logo" width="310">
   </div>
   <hr>
@@ -39,11 +39,10 @@
         <td style="width: 15%" class="text-center">
           <div class="col-sm-12">
             <form th:action="@{updateForm/{id}(id=${patient.patientId})}" method="post">
-              <button type="submit">Update</button>
+              <button type="submit" class="btn btn-primary">Update</button>
             </form>
           </div>
         </td>
-
       </tr>
       </tbody>
     </table>

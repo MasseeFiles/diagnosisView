@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Note Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div style="text-align: center">
+        <img src="../images/p1.png" alt="Medilabo logo" width="310">
+    </div>
+    <hr>
+    <div class="row" style="text-align: center;">
+        <h4>Note Form</h4>
+    </div>
+    <div class="col-md-10 offset-md-1">
+        <label for="noteField">Please type a new note in the box below.</label>
+        <form th:action="@{/noteView/add}" th:object="${note}" method="POST" class="form-horizontal"
+              style="width: 100%">
+            <div class="form-group">
+                <textarea th:field="*{noteField}" id="noteField"
+                          class="form-control" style="height: 15em">
+                </textarea>
+            </div>
+            <input type="hidden" th:name="customId" th:value="${note.customId}" />
+            <button type="submit" class="btn btn-primary">Submit Note</button>
+        </form>
+
+<!--        bouton pour revenir à la listnote-->
+
+<!--        <div class="row">-->
+<!--            <div class="form-group" th:with="note1=${notes[0]}">-->
+<!--                <form th:action="@{noteView/noteForm/{id}(id=${note1.customId})}" method="post">-->
+<!--                    <button type="submit" class="btn btn-primary">Submit</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+
+    </div>
+</div>
+</body>
+</html>

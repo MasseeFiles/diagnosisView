@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Repository
-@FeignClient(name = "DiagnosisApp", url = "http://localhost:8080")
-public interface DiagnosisViewRepository {
+//@FeignClient(name = "DiagnosisApp", url = "host.docker.internal:8081")
+@FeignClient(name = "DiagnosisApp", url = "http://localhost:8081")
+public interface PatientViewRepository {
 
     @RequestMapping(method = RequestMethod.GET, value = "/patient")
     List<PatientView> findAllPatient();
