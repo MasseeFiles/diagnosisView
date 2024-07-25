@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Repository
-@FeignClient(name = "DiagnosisNote", url = "http://localhost:8083")
+@FeignClient(name = "diagnosisNote", url = "http://localhost:8083")
 public interface NoteViewRepository {
 
     @RequestMapping(method = RequestMethod.GET, value = "/note/{id}")

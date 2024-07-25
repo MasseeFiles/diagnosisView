@@ -47,7 +47,9 @@ public class PatientViewControllerTests {
                 .andExpect(MockMvcResultMatchers
                         .view().name("/listPatient"))
                 .andExpect(MockMvcResultMatchers
-                        .model().attributeExists("patients"));
+                        .model().attributeExists("patients"))
+                .andExpect(MockMvcResultMatchers
+                        .model().attributeExists("risk"));
     }
 
     @Test

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PatientView {
+public class PatientViewDto {
     private Long patientId;
 
     private String firstName;
@@ -24,5 +24,4 @@ public class PatientView {
 
     private String phoneNumber;
 
-    private String riskLevel;
 }

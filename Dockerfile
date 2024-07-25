@@ -1,4 +1,4 @@
-##################### DOCKERFILE Diagnosis view ####################
+##################### DOCKERFILE diagnosis_view ####################
 
 #################### STAGE 1 : Construction du projet ##########################
 

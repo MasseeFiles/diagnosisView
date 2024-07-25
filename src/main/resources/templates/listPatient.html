@@ -24,22 +24,32 @@
         <th>Genre</th>
         <th>Address</th>
         <th>Phone Number</th>
+        <th>Risk Level</th>
         <th>Action</th>
+        <th>Notes</th>
       </tr>
       </thead>
       <tbody>
       <tr th:each="patient : ${patients}">
-        <td style="width: 10%" th:text="${patient.patientId}"></td>
+        <td style="width: 4%" th:text="${patient.patientId}"></td>
         <td th:text="${patient.lastName}"></td>
         <td th:text="${patient.firstName}"></td>
         <td th:text="${patient.dateOfBirth}"></td>
-        <td th:text="${patient.genre}"></td>
+        <td th:text="${patient.gender}"></td>
         <td th:text="${patient.address}"></td>
         <td th:text="${patient.phoneNumber}"></td>
+        <td th:text="${patient.riskLevel}"></td>
         <td style="width: 15%" class="text-center">
           <div class="col-sm-12">
             <form th:action="@{updateForm/{id}(id=${patient.patientId})}" method="post">
               <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+          </div>
+        </td>
+        <td style="width: 15%" class="text-center">
+          <div class="col-sm-12">
+            <form th:action="@{noteView/{id}(id=${patient.patientId})}" method="get">
+              <button type="submit" class="btn btn-primary">View patient notes</button>
             </form>
           </div>
         </td>
