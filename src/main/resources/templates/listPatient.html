@@ -9,7 +9,7 @@
 <body>
 <div class="container">
   <div style="text-align: center">
-    <img src="../images/p1.png" alt="Medilabo logo" width="310">
+    <img src="../p1.png" alt="Medilabo logo" width="310">
   </div>
   <hr>
   <div class="row" style="text-align: center;"><h4>Patient List</h4></div>
@@ -41,14 +41,15 @@
         <td th:text="${patient.riskLevel}"></td>
         <td style="width: 15%" class="text-center">
           <div class="col-sm-12">
-            <form th:action="@{updateForm/{id}(id=${patient.patientId})}" method="post">
-              <button type="submit" class="btn btn-primary">Update</button>
+<!--            <form th:action="@{/updateForm/{id}(id=${patient.patientId})}" method="post">-->
+            <form th:action="@{/updateForm/{id}(id=${patient.patientId})}" method="get">
+              <button type="submit" class="btn btn-primary">Update Patient Details</button>
             </form>
           </div>
         </td>
         <td style="width: 15%" class="text-center">
           <div class="col-sm-12">
-            <form th:action="@{noteView/{id}(id=${patient.patientId})}" method="get">
+            <form th:action="@{/noteView/{id}(id=${patient.patientId})}" method="get">
               <button type="submit" class="btn btn-primary">View patient notes</button>
             </form>
           </div>

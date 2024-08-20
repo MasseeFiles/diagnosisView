@@ -42,7 +42,7 @@ public class NoteViewController {
         NoteView noteview = new NoteView();
         noteview.setCustomId(id);
 
-        modelAndView.setViewName("/createNote");
+        modelAndView.setViewName("/noteForm");
         modelAndView.addObject("note", noteview);
         return modelAndView;
     }

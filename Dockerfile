@@ -23,7 +23,7 @@ FROM openjdk:21-jdk-slim
 WORKDIR /diagnosisview
 
 # Copie du fichier packagé (jar) vers le fichier de travail
-COPY --from=build /diagnosisview/target/diagnosisview-0.0.1-SNAPSHOT.jar /diagnosis/diagnosisview.jar
+COPY --from=build /diagnosisview/target/diagnosisview-0.0.1-SNAPSHOT.jar /diagnosisview/diagnosisview.jar
 
 # Exposition du port d'accès à l'appli
 EXPOSE 8082

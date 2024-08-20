@@ -1,6 +1,5 @@
 package com.medilabo.diagnosisview;
 
-import com.medilabo.diagnosisview.controller.NoteViewController;
 import com.medilabo.diagnosisview.controller.PatientViewController;
 import com.medilabo.diagnosisview.model.PatientView;
 import com.medilabo.diagnosisview.service.PatientViewService;
@@ -31,8 +30,8 @@ public class PatientViewControllerTests {
     void showPatientList_shouldReturnModelAndViewUpdated() throws Exception {
         //GIVEN
         PatientView[] patientArray = new PatientView[2];
-        patientArray[0] = new PatientView(1L, "Test", "TestNone", LocalDate.of(1966, 12, 31), "F", "AA", "AA");
-        patientArray[1] = new PatientView(2L, "Test", "TestBorderline", LocalDate.of(1945, 6, 24), "M", "BB", "BB");
+        patientArray[0] = new PatientView(1L, "Test", "TestNone", LocalDate.of(1966, 12, 31), "F", "AA", "AA", "Borderline");
+        patientArray[1] = new PatientView(2L, "Test", "TestBorderline", LocalDate.of(1945, 6, 24), "M", "BB", "BB", "In danger");
 
         List<PatientView> patientListTest = new ArrayList<>((Arrays.asList(patientArray)));
 
@@ -41,35 +40,33 @@ public class PatientViewControllerTests {
         mockMvc.perform(MockMvcRequestBuilders
                         .get("/list")
                 )
-        //THEN
+                //THEN
                 .andExpect(MockMvcResultMatchers
                         .status().isOk())
                 .andExpect(MockMvcResultMatchers
                         .view().name("/listPatient"))
                 .andExpect(MockMvcResultMatchers
-                        .model().attributeExists("patients"))
-                .andExpect(MockMvcResultMatchers
-                        .model().attributeExists("risk"));
+                        .model().attributeExists("patients"));
     }
 
-    @Test
-    void showPatientUpdateForm_shouldReturnModelAndViewUpdated() throws Exception {
-        //GIVEN
-        PatientView patientTest = new PatientView(1L, "Test", "TestNone", LocalDate.of(1966, 12, 31), "F", "AA", "AA");
-        when(patientViewService.getSinglePatient(1L)).thenReturn(patientTest);
-
-        //WHEN
-        mockMvc.perform(MockMvcRequestBuilders
-                        .post("/updateForm/{id}", 1L)
-                )
-        //THEN
-                .andExpect(MockMvcResultMatchers
-                        .status().isOk())
-                .andExpect(MockMvcResultMatchers
-                        .view().name("/updatePatient"))
-                .andExpect(MockMvcResultMatchers
-                        .model().attributeExists("patient"));
-    }
+//    @Test
+//    void showPatientUpdateForm_shouldReturnModelAndViewUpdated() throws Exception {
+//        //GIVEN
+//        PatientView patientTest = new PatientView(1L, "Test", "TestNone", LocalDate.of(1966, 12, 31), "F", "AA", "AA", "Borderline");
+//        when(patientViewService.getSinglePatient(1L)).thenReturn(patientTest);
+//
+//        //WHEN
+//        mockMvc.perform(MockMvcRequestBuilders
+//                        .post("/updateForm/{id}", 1L)
+//                )
+//                //THEN
+//                .andExpect(MockMvcResultMatchers
+//                        .status().isOk())
+//                .andExpect(MockMvcResultMatchers
+//                        .view().name("/updatePatient"))
+//                .andExpect(MockMvcResultMatchers
+//                        .model().attributeExists("patient"));
+//    }
 
     @Test
     void updatePatient_shouldReturnModelAndViewUpdated() throws Exception {

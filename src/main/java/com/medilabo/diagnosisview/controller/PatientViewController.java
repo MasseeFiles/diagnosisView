@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -32,8 +32,8 @@ public class PatientViewController {
         return modelAndView;
     }
 
-    // Update d'un patient - affichage form
-    @PostMapping("updateForm/{id}")
+    //     Update d'un patient - affichage form
+    @GetMapping("/updateForm/{id}")
     public ModelAndView showPatientUpdateForm(@PathVariable("id") Long id, ModelAndView modelAndView) {
 
         logger.info("Requete pour l'affichage du formulaire d'update d'un patient");
@@ -45,7 +45,7 @@ public class PatientViewController {
     }
 
     // Update d'un patient - persistence en base
-    @PostMapping("/{id}")
+    @PutMapping("/patient/{id}")
     public ModelAndView updatePatient(@PathVariable("id") Long id, PatientView patientUpdated, ModelAndView modelAndView) {
 
         logger.info("Requete pour la persistence en base d'un patient");
