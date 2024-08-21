@@ -49,29 +49,29 @@ public class PatientViewControllerTests {
                         .model().attributeExists("patients"));
     }
 
-//    @Test
-//    void showPatientUpdateForm_shouldReturnModelAndViewUpdated() throws Exception {
-//        //GIVEN
-//        PatientView patientTest = new PatientView(1L, "Test", "TestNone", LocalDate.of(1966, 12, 31), "F", "AA", "AA", "Borderline");
-//        when(patientViewService.getSinglePatient(1L)).thenReturn(patientTest);
-//
-//        //WHEN
-//        mockMvc.perform(MockMvcRequestBuilders
-//                        .post("/updateForm/{id}", 1L)
-//                )
-//                //THEN
-//                .andExpect(MockMvcResultMatchers
-//                        .status().isOk())
-//                .andExpect(MockMvcResultMatchers
-//                        .view().name("/updatePatient"))
-//                .andExpect(MockMvcResultMatchers
-//                        .model().attributeExists("patient"));
-//    }
+    @Test
+    void showPatientUpdateForm_shouldReturnModelAndViewUpdated() throws Exception {
+        //GIVEN
+        PatientView patientTest = new PatientView(1L, "Test", "TestNone", LocalDate.of(1966, 12, 31), "F", "AA", "AA", "Borderline");
+        when(patientViewService.getSinglePatient(1L)).thenReturn(patientTest);
+
+        //WHEN
+        mockMvc.perform(MockMvcRequestBuilders
+                        .get("/updateForm/{id}", 1L)
+                )
+                //THEN
+                .andExpect(MockMvcResultMatchers
+                        .status().isOk())
+                .andExpect(MockMvcResultMatchers
+                        .view().name("/updatePatientForm"))
+                .andExpect(MockMvcResultMatchers
+                        .model().attributeExists("patient"));
+    }
 
     @Test
     void updatePatient_shouldReturnModelAndViewUpdated() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders
-                        .post("/{id}", 1L)
+                        .post("/patient/{id}", 1L)
                 )
                 .andExpect(MockMvcResultMatchers
                         .status().isOk())

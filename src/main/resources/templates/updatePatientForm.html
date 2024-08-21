@@ -16,7 +16,8 @@
         <h4>Update Patient</h4>
     </div>
     <div class="row">
-        <form th:action="@{/{id}(id=${patient.patientId})}" th:object="${patient}" method="POST" class="form-horizontal"
+        <form th:action="@{/patient/{id}(id=${patient.patientId})}" th:object="${patient}" method="POST"
+              class="form-horizontal"
               style="width: 100%">
             <div class="form-group">
                 <label for="lastName" class="col-sm-2 control-label">Last name</label>
@@ -67,14 +68,12 @@
                 <div style="height: 3px"></div>
             </div>
             <div>
-                <div class="col-sm-12" style="margin-left: 7em">
+                <div class="col-sm-12" style="margin-left: 2em; margin-top: 2em; margin-bottom: 2em">
                     <input type="hidden" th:field="*{patientId}">
-                    <form th:action="@{/patient/{id}(id=${patient.patientId})}" method="PUT">
-                        <button type="submit" class="btn btn-primary">Update</button>
-                    </form>
-                    <div style="height: 2em"></div>
-                    <form th:action="@{/list}" method="get">
-                        <button type="submit">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <div style="margin-top: 2em"></div>
+                    <form th:action="@{/list}" method="GET">
+                        <button type="submit">Back to Patient list</button>
                     </form>
                 </div>
             </div>

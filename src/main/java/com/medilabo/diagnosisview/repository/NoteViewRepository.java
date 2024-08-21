@@ -20,4 +20,5 @@ public interface NoteViewRepository {
 
     @RequestMapping(method = RequestMethod.POST, value = "/note/add/{id}")
     void createNote(@PathVariable("id") Long customId, @RequestBody String noteField);
+
 }

@@ -33,10 +33,10 @@
                 </td>
             </tbody>
         </table>
-<!--        <div class="form-group">-->
-<!--            <form th:action="@{noteForm/{id}(id=${note[0].customId})}" th:object="${note}" method="post">-->
-<!--            <button type="submit" class="btn btn-primary">Add Note</button>-->
-<!--            </form>-->
+        <div class="form-group">
+            <form th:action="@{/list}" method="GET">
+                <button type="submit">Back to Patient list</button>
+            </form>
         </div>
     </div>
 </div>

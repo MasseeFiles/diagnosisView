@@ -20,9 +20,6 @@ public interface PatientViewRepository {
     @RequestMapping(method = RequestMethod.GET, value = "/patient/{id}")
     PatientViewDto findPatientById(@PathVariable("id") Long id);
 
-//    @RequestMapping(method = RequestMethod.POST, value = "/updateForm/{id}")
-//    PatientViewDto findPatientById(@PathVariable("id") Long id);
-
     @RequestMapping(method = RequestMethod.PUT, value = "/patient/{id}")
     void updatePatient(@PathVariable("id") Long id, PatientViewDto patientToUpdate);
 
