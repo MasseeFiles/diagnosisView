@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <div style="text-align: center">
-        <img src="../images/p1.png" alt="Medilabo logo" width="310">
+        <h2>MEDILABO - DIAGNOSIS</h2>
     </div>
     <hr>
     <div class="row" style="text-align: center;">
@@ -17,7 +17,7 @@
     </div>
     <div class="col-md-10 offset-md-1">
         <label for="noteField">Please type a new note in the box below.</label>
-        <form th:action="@{/noteView/add}" th:object="${note}" method="POST" class="form-horizontal"
+        <form th:action="@{/view/addNote}" th:object="${note}" method="POST" class="form-horizontal"
               style="width: 100%">
             <div class="form-group">
                 <textarea th:field="*{noteField}" id="noteField"
@@ -28,7 +28,7 @@
             <button type="submit" class="btn btn-primary">Submit Note</button>
         </form>
         <div class="form-group" style="margin-top: 2em">
-            <form th:action="@{/list}" method="GET">
+            <form th:action="@{/view/patientList}" method="GET">
                 <button type="submit">Back to Patient list</button>
             </form>
         </div>

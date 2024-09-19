@@ -9,14 +9,14 @@
 <body>
 <div class="container">
     <div style="text-align: center">
-        <img src="../images/p1.png" alt="Medilabo logo" width="310">
+        <h2>MEDILABO - DIAGNOSIS</h2>
     </div>
     <hr>
     <div class="row" style="text-align: center;">
         <h4>Update Patient</h4>
     </div>
     <div class="row">
-        <form th:action="@{/patient/{id}(id=${patient.patientId})}" th:object="${patient}" method="POST"
+        <form th:action="@{/view/updatePatient/{id}(id=${patient.patientId})}" th:object="${patient}" method="POST"
               class="form-horizontal"
               style="width: 100%">
             <div class="form-group">
@@ -71,12 +71,12 @@
                 <div class="col-sm-12" style="margin-left: 2em; margin-top: 2em; margin-bottom: 2em">
                     <input type="hidden" th:field="*{patientId}">
                     <button type="submit" class="btn btn-primary">Update</button>
-                    <div style="margin-top: 2em"></div>
-                    <form th:action="@{/list}" method="GET">
-                        <button type="submit">Back to Patient list</button>
-                    </form>
                 </div>
             </div>
+        </form>
+        <div style="margin-top: 2em; margin-left: 3em"></div>
+        <form th:action="@{/view/patientList}" method="GET">
+            <button type="submit">Back to Patient list</button>
         </form>
     </div>
 </div>

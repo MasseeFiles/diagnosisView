@@ -1,9 +1,9 @@
-package com.medilabo.diagnosisview;
+package com.medilabo.diagnosis_view;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.medilabo.diagnosisview.controller.NoteViewController;
-import com.medilabo.diagnosisview.model.NoteView;
-import com.medilabo.diagnosisview.service.NoteViewService;
+import com.medilabo.diagnosis_view.controller.NoteViewController;
+import com.medilabo.diagnosis_view.model.NoteView;
+import com.medilabo.diagnosis_view.service.NoteViewService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -39,9 +39,9 @@ public class NoteViewControllerTests {
 
         //WHEN
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/noteView/{id}", 1L)
+                        .get("/viewService/listNote/{id}", 1L)
                 )
-                //THEN
+        //THEN
                 .andExpect(MockMvcResultMatchers
                         .status().isOk())
                 .andExpect(MockMvcResultMatchers
@@ -54,9 +54,9 @@ public class NoteViewControllerTests {
     void showNoteForm_shouldReturnModelAndViewUpdated() throws Exception {
         //WHEN
         mockMvc.perform(MockMvcRequestBuilders
-                        .post("/noteView/noteForm/{id}", 1L)
+                        .post("/viewService/noteForm/{id}", 1L)
                 )
-                //THEN
+        //THEN
                 .andExpect(MockMvcResultMatchers
                         .status().isOk())
                 .andExpect(MockMvcResultMatchers
@@ -75,10 +75,10 @@ public class NoteViewControllerTests {
 
         //WHEN
         mockMvc.perform(MockMvcRequestBuilders
-                        .post("/noteView/add")
+                        .post("/viewService/addNote")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonNote))
-                //THEN
+        //THEN
                 .andExpect(MockMvcResultMatchers
                         .status().isOk())
                 .andExpect(MockMvcResultMatchers

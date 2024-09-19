@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <div style="text-align: center">
-        <img src="../images/p1.png" alt="Medilabo logo" width="310">
+        <h2>MEDILABO - DIAGNOSIS</h2>
     </div>
     <hr>
     <div class="row" style="text-align: center;"><h4>Patient Notes</h4></div>
@@ -17,24 +17,25 @@
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>Patient Id</th>
-
+                <th>Note #</th>
                 <th>Note</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="note : ${notes}">
-                <td style="width: 5%" th:text="${note.customId}"></td>
-                <td style="width: 80%" th:text="${note.noteField}"></td>
-                <td>
-                    <form th:action="@{noteForm/{id}(id=${note.customId})}" method="post">
-                        <button type="submit" class="btn btn-primary">Add note</button>
-                    </form>
-                </td>
+                <tr th:each="note, stat : ${notes}">
+                    <td style="width: 10%" th:text="${stat.index + 1}"></td>
+                    <td style="width: 80%" th:text="${note.noteField}"></td>
+                    <td style="width: 10%">
+                        <form th:action="@{/view/noteForm/{id}(id=${note.customId})}" method="post">
+                            <button type="submit" class="btn btn-primary">Add note</button>
+                        </form>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <div class="form-group">
-            <form th:action="@{/list}" method="GET">
+            <form th:action="@{/view/patientList}" method="GET">
                 <button type="submit">Back to Patient list</button>
             </form>
         </div>

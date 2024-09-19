@@ -1,4 +1,4 @@
-package com.medilabo.diagnosisview.model;
+package com.medilabo.diagnosis_view.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PatientView {
+public class PatientViewDto {
     private Long patientId;
 
     private String firstName;
@@ -24,5 +24,4 @@ public class PatientView {
 
     private String phoneNumber;
 
-    private String riskLevel;
 }

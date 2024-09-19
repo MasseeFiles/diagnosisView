@@ -1,7 +1,7 @@
-package com.medilabo.diagnosisview.controller;
+package com.medilabo.diagnosis_view.controller;
 
-import com.medilabo.diagnosisview.model.NoteView;
-import com.medilabo.diagnosisview.service.NoteViewService;
+import com.medilabo.diagnosis_view.model.NoteView;
+import com.medilabo.diagnosis_view.service.NoteViewService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,21 +15,22 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping("/noteView")
+@RequestMapping("/view")
 public class NoteViewController {
+
     private static final Logger logger = LogManager.getLogger("NoteViewController");
 
     @Autowired
     private NoteViewService noteViewService;
 
-    @GetMapping("/{id}")   //id correspond à id du patient visé et se transforme dans le service en customId
+    @GetMapping("/listNote/{id}")
     public ModelAndView showNoteList(@PathVariable("id") Long patientId, ModelAndView modelAndView) {
 
         logger.info("Requete pour obtenir l'affichage de la liste des notes pour un patient");
 
         List<NoteView> notes = noteViewService.getNotes(patientId);
 
-        modelAndView.setViewName("/listNote");
+        modelAndView.setViewName("listNote");
         modelAndView.addObject("notes", notes);
         return modelAndView;
     }
@@ -42,12 +43,12 @@ public class NoteViewController {
         NoteView noteview = new NoteView();
         noteview.setCustomId(id);
 
-        modelAndView.setViewName("/noteForm");
+        modelAndView.setViewName("noteForm");
         modelAndView.addObject("note", noteview);
         return modelAndView;
     }
 
-    @PostMapping("/add")
+    @PostMapping("/addNote")
     public ModelAndView createNote(NoteView noteToAdd, ModelAndView modelAndView) {
 
         logger.info("Requete pour la persistence en base d'une note");
@@ -55,7 +56,7 @@ public class NoteViewController {
         noteViewService.addNote(noteToAdd);
 
         List<NoteView> notes = noteViewService.getNotes(noteToAdd.getCustomId());
-        modelAndView.setViewName("/listNote");
+        modelAndView.setViewName("listNote");
         modelAndView.addObject("notes", notes);
 
         return modelAndView;

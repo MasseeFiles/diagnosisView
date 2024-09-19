@@ -11,6 +11,7 @@ WORKDIR /diagnosisview
 # Copie du pom et du code source dans le fichier de travail
 COPY pom.xml /diagnosisview
 COPY src /diagnosisview/src
+#COPY src/main/resources/templates /diagnosisview/templates
 
 # Package de l'appli (sans execution des tests - DskipTests)
 RUN mvn clean package -DskipTests
@@ -29,8 +30,7 @@ COPY --from=build /diagnosisview/target/diagnosisview-0.0.1-SNAPSHOT.jar /diagno
 EXPOSE 8082
 
 #RUN de l'appli (par defaut au demarrage)
-#ENTRYPOINT ["java", "-jar", "diagnosisview.jar"]
-ENTRYPOINT ["java", "-Dspring.config.location=classpath:/application.properties", "-jar", "diagnosisview.jar"]
+ENTRYPOINT ["java", "-jar", "diagnosisview.jar"]
 
 
 

@@ -1,7 +1,7 @@
-package com.medilabo.diagnosisview.service;
+package com.medilabo.diagnosis_view.service;
 
-import com.medilabo.diagnosisview.model.NoteView;
-import com.medilabo.diagnosisview.repository.NoteViewRepository;
+import com.medilabo.diagnosis_view.model.NoteView;
+import com.medilabo.diagnosis_view.repository.NoteViewRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,8 +1,8 @@
-package com.medilabo.diagnosisview;
+package com.medilabo.diagnosis_view;
 
-import com.medilabo.diagnosisview.controller.PatientViewController;
-import com.medilabo.diagnosisview.model.PatientView;
-import com.medilabo.diagnosisview.service.PatientViewService;
+import com.medilabo.diagnosis_view.controller.PatientViewController;
+import com.medilabo.diagnosis_view.model.PatientView;
+import com.medilabo.diagnosis_view.service.PatientViewService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -38,9 +38,9 @@ public class PatientViewControllerTests {
         when(patientViewService.getAllPatient()).thenReturn(patientListTest);
         //WHEN
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/list")
+                        .get("/viewService/patientList")
                 )
-                //THEN
+        //THEN
                 .andExpect(MockMvcResultMatchers
                         .status().isOk())
                 .andExpect(MockMvcResultMatchers
@@ -57,9 +57,9 @@ public class PatientViewControllerTests {
 
         //WHEN
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/updateForm/{id}", 1L)
+                        .get("/viewService/updateFormPatient/{id}", 1L)
                 )
-                //THEN
+        //THEN
                 .andExpect(MockMvcResultMatchers
                         .status().isOk())
                 .andExpect(MockMvcResultMatchers
@@ -71,7 +71,7 @@ public class PatientViewControllerTests {
     @Test
     void updatePatient_shouldReturnModelAndViewUpdated() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders
-                        .post("/patient/{id}", 1L)
+                        .post("/viewService/updatePatient/{id}", 1L)
                 )
                 .andExpect(MockMvcResultMatchers
                         .status().isOk())

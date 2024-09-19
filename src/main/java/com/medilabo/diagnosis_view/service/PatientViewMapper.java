@@ -1,11 +1,18 @@
-package com.medilabo.diagnosisview.service;
+package com.medilabo.diagnosis_view.service;
 
-import com.medilabo.diagnosisview.model.PatientView;
-import com.medilabo.diagnosisview.model.PatientViewDto;
-import com.medilabo.diagnosisview.repository.RiskViewRepository;
+import com.medilabo.diagnosis_view.model.PatientView;
+import com.medilabo.diagnosis_view.model.PatientViewDto;
+import com.medilabo.diagnosis_view.repository.RiskViewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * Mapper utilisé pour convertir les objets PatientViewDto (reçus du microservice Patient)
+ * en objets PatientView (ajout du niveau de risque reçu du microservice Risk), et vice-versa.
+ * @see PatientView
+ * @see PatientViewDto
+ * @see PatientViewService
+ */
 @Component
 public class PatientViewMapper {
 
