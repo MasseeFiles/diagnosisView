@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Mapper utilisé pour convertir les objets PatientViewDto (reçus du microservice Patient)
- * en objets PatientView (ajout du niveau de risque reçu du microservice Risk), et vice-versa.
+ * en objets PatientView (ajout du niveau de risque reçu du microservice Risk).
  * @see PatientView
  * @see PatientViewDto
  * @see PatientViewService

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Repository
-@FeignClient(name = "toNoteServiceViaGateway", url = "#{toGatewayServiceUrl}", configuration = FeignClientConfig.class)
+@FeignClient(name = "toNoteService", url = "#{toNoteServiceUrl}", configuration = FeignClientConfig.class)
 //@FeignClient(name = "toNoteService", url = "http://localhost:8083", configuration = FeignClientConfig.class)
 public interface NoteViewRepository {
 

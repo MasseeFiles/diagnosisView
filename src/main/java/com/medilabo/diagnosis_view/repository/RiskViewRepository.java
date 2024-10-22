@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Repository
-@FeignClient(name = "toRiskServiceViaGateway", url = "#{toGatewayServiceUrl}", configuration = FeignClientConfig.class)
+@FeignClient(name = "toRiskService", url = "#{toRiskServiceUrl}" , configuration = FeignClientConfig.class)
 //@FeignClient(name = "toRiskService", url = "http://localhost:8085", configuration = FeignClientConfig.class)
 public interface RiskViewRepository {
     @RequestMapping(method = RequestMethod.GET, value = "/risks/{id}")

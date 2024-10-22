@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Repository
-@FeignClient(name = "toPatientServiceViaGateway", url = "#{toGatewayServiceUrl}", configuration = FeignClientConfig.class)
-//@FeignClient(name = "toPatientService", url = "http://localhost:8081", configuration = FeignClientConfig.class)
+@FeignClient(name = "toPatientService", url = "#{toPatientServiceUrl}", configuration = FeignClientConfig.class)
+//@FeignClient(name = "toPatientService", url = "#{toGatewayServiceUrl}", configuration = FeignClientConfig.class)
 public interface PatientViewRepository {
 
     @RequestMapping(method = RequestMethod.GET, value = "/patients")

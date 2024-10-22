@@ -14,7 +14,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/view")
 public class PatientViewController {
+
     private static final Logger logger = LogManager.getLogger("PatientViewController");
+
     @Autowired
     private PatientViewService patientViewService;
 
